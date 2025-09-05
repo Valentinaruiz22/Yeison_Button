@@ -6,21 +6,21 @@ import { z } from 'zod';
 import toast from 'react-hot-toast';
 import L, { Map as LeafletMap } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { 
-  Phone, 
-  Mail, 
-  MessageCircle, 
-  MapPin, 
-  Clock, 
+import {
+  Phone,
+  Mail,
+  MessageCircle,
+  MapPin,
+  Clock,
   Send,
   User,
   MessageSquare,
-  ExternalLink
+  ExternalLink,
 } from 'lucide-react';
 
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
-import customMapIconUrl from '/productos/icono-pinguino.png'; 
+import customMapIconUrl from '/productos/icono-pinguino.png';
 
 const customMapIcon = L.icon({
   iconUrl: customMapIconUrl,
@@ -44,10 +44,7 @@ const contactSchema = z.object({
     .string()
     .min(2, 'El nombre debe tener al menos 2 caracteres')
     .max(50, 'El nombre no puede exceder 50 caracteres'),
-  email: z
-    .string()
-    .email('Ingresa un email válido')
-    .min(5, 'El email es muy corto'),
+  email: z.string().email('Ingresa un email válido').min(5, 'El email es muy corto'),
   phone: z
     .string()
     .optional()
@@ -73,7 +70,7 @@ const Contacto: React.FC = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid }
+    formState: { errors, isValid },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     mode: 'onChange',
@@ -87,11 +84,14 @@ const Contacto: React.FC = () => {
       mapInstanceRef.current = map;
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
-      L.marker(bogotaCoords, { icon: customMapIcon }).addTo(map)
-        .bindPopup('<b>BABY CASH</b><br>Pañalera y variedades Soffy\'s').openPopup();
+      L.marker(bogotaCoords, { icon: customMapIcon })
+        .addTo(map)
+        .bindPopup("<b>BABY CASH</b><br>Pañalera y variedades Soffy's")
+        .openPopup();
     }
 
     return () => {
@@ -108,28 +108,28 @@ const Contacto: React.FC = () => {
       label: 'Teléfono',
       value: '+57 300 123 4567',
       href: 'tel:+573001234567',
-      description: 'Línea directa para atención inmediata'
+      description: 'Línea directa para atención inmediata',
     },
     {
       icon: MessageCircle,
       label: 'WhatsApp',
       value: '+57 300 123 4567',
       href: `https://wa.me/573001234567?text=Hola%20BABY%20CASH,%20necesito%20información`,
-      description: 'Chat directo para consultas rápidas'
+      description: 'Chat directo para consultas rápidas',
     },
     {
       icon: Mail,
       label: 'Email',
       value: 'contacto@babycash.com',
       href: 'mailto:contacto@babycash.com',
-      description: 'Para consultas detalladas y cotizaciones'
+      description: 'Para consultas detalladas y cotizaciones',
     },
     {
       icon: MapPin,
       label: 'Dirección',
       value: 'Carrera 7 #24-89, Bogotá',
       href: '#mapa',
-      description: 'Visítanos en nuestro punto físico'
+      description: 'Visítanos en nuestro punto físico',
     },
   ];
 
@@ -141,11 +141,11 @@ const Contacto: React.FC = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    console.log("Datos del formulario enviados:", data);
-    
+    console.log('Datos del formulario enviados:', data);
+
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
       toast.success('¡Mensaje enviado exitosamente! Te contactaremos pronto.', {
         duration: 4000,
         style: {
@@ -153,7 +153,7 @@ const Contacto: React.FC = () => {
           color: '#1F2937',
         },
       });
-      reset(); 
+      reset();
     } catch (error) {
       toast.error('Error al enviar el mensaje. Inténtalo nuevamente.', {
         duration: 4000,
@@ -179,7 +179,7 @@ const Contacto: React.FC = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
 
@@ -197,14 +197,11 @@ const Contacto: React.FC = () => {
               variants={itemVariants}
               className="text-4xl lg:text-5xl font-poppins font-bold text-baby-gray mb-6"
             >
-              Contáctanos 
+              Contáctanos
             </motion.h1>
-            <motion.p
-              variants={itemVariants}
-              className="text-xl text-baby-gray leading-relaxed"
-            >
-              Estamos aquí para ayudarte. Escríbenos, llámanos o visítanos. 
-              Tu bebé y tu tranquilidad son nuestra prioridad.
+            <motion.p variants={itemVariants} className="text-xl text-baby-gray leading-relaxed">
+              Estamos aquí para ayudarte. Escríbenos, llámanos o visítanos. Tu bebé y tu
+              tranquilidad son nuestra prioridad.
             </motion.p>
           </motion.div>
         </div>
@@ -247,15 +244,14 @@ const Contacto: React.FC = () => {
                       <h3 className="font-poppins font-semibold text-baby-gray group-hover:text-baby-blue transition-colors">
                         {contact.label}
                       </h3>
-                      <p className="text-lg font-medium text-baby-gray mt-1">
-                        {contact.value}
-                      </p>
-                      <p className="text-sm text-baby-gray mt-1">
-                        {contact.description}
-                      </p>
+                      <p className="text-lg font-medium text-baby-gray mt-1">{contact.value}</p>
+                      <p className="text-sm text-baby-gray mt-1">{contact.description}</p>
                     </div>
                     {contact.href.startsWith('http') && (
-                      <ExternalLink size={16} className="text-baby-gray group-hover:text-baby-blue transition-colors flex-shrink-0 mt-1" />
+                      <ExternalLink
+                        size={16}
+                        className="text-baby-gray group-hover:text-baby-blue transition-colors flex-shrink-0 mt-1"
+                      />
                     )}
                   </motion.a>
                 );
@@ -314,15 +310,13 @@ const Contacto: React.FC = () => {
                   type="text"
                   id="name"
                   className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                    errors.name 
-                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20' 
+                    errors.name
+                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20'
                       : 'border-gray-200 focus:border-baby-blue focus:ring-baby-blue/20'
                   }`}
                   placeholder="Tu nombre completo"
                 />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
-                )}
+                {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>}
               </div>
 
               <div>
@@ -335,8 +329,8 @@ const Contacto: React.FC = () => {
                   type="email"
                   id="email"
                   className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                    errors.email 
-                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20' 
+                    errors.email
+                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20'
                       : 'border-gray-200 focus:border-baby-blue focus:ring-baby-blue/20'
                   }`}
                   placeholder="tu@email.com"
@@ -373,8 +367,8 @@ const Contacto: React.FC = () => {
                   type="text"
                   id="subject"
                   className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-                    errors.subject 
-                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20' 
+                    errors.subject
+                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20'
                       : 'border-gray-200 focus:border-baby-blue focus:ring-baby-blue/20'
                   }`}
                   placeholder="¿En qué podemos ayudarte?"
@@ -393,8 +387,8 @@ const Contacto: React.FC = () => {
                   id="message"
                   rows={5}
                   className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 resize-none ${
-                    errors.message 
-                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20' 
+                    errors.message
+                      ? 'border-red-300 focus:border-red-500 focus:ring-red-500/20'
                       : 'border-gray-200 focus:border-baby-blue focus:ring-baby-blue/20'
                   }`}
                   placeholder="Escribe tu mensaje aquí. Cuéntanos qué necesitas y cómo podemos ayudarte..."
@@ -410,11 +404,12 @@ const Contacto: React.FC = () => {
                 type="submit"
                 disabled={!isValid || isSubmitting}
                 className={`w-full flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-white transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-offset-2
-                  ${isSubmitting 
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : isValid 
-                      ? 'bg-gradient-to-r from-baby-blue to-baby-pink hover:from-baby-pink hover:to-baby-blue hover:shadow-lg'
-                      : 'bg-gray-400 cursor-not-allowed'
+                  ${
+                    isSubmitting
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : isValid
+                        ? 'bg-gradient-to-r from-baby-blue to-baby-pink hover:from-baby-pink hover:to-baby-blue hover:shadow-lg'
+                        : 'bg-gray-400 cursor-not-allowed'
                   }`}
               >
                 {isSubmitting ? (
@@ -446,10 +441,7 @@ const Contacto: React.FC = () => {
             >
               Nuestra Ubicación
             </motion.h2>
-            <motion.p
-              variants={itemVariants}
-              className="text-lg text-baby-gray max-w-2xl mx-auto"
-            >
+            <motion.p variants={itemVariants} className="text-lg text-baby-gray max-w-2xl mx-auto">
               Encuéntranos en el corazón de Bogotá. Fácil acceso y parqueadero disponible.
             </motion.p>
           </motion.div>
@@ -461,15 +453,15 @@ const Contacto: React.FC = () => {
             viewport={{ once: true }}
             className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-xl border border-baby-blue"
           >
-            <div 
-              ref={mapContainerRef} 
+            <div
+              ref={mapContainerRef}
               className="absolute inset-0 z-0"
               style={{ width: '100%', height: '100%' }}
             />
-            
+
             <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg max-w-sm z-10 border border-baby-blue">
               <h3 className="font-poppins font-bold text-baby-gray mb-1">BABY CASH</h3>
-              <p className="text-sm text-baby-gray mb-2">Pañalera y variedades Soffy's</p>
+              <p className="text-sm text-baby-gray mb-2">Pañalera y variedades {`Soffy's`}</p>
               <p className="text-xs text-baby-gray">
                 <MapPin size={12} className="inline mr-1" />
                 Torre Colpatria, Bogotá, Colombia

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const Preloader = () => {
   return (
@@ -8,13 +8,13 @@ const Preloader = () => {
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          transition={{ duration: 0.8, ease: 'easeInOut' }}
           className="mb-8"
         >
           <motion.div
             className="w-32 h-32 mx-auto"
             animate={{ y: [0, -20, 0], rotate: [0, 5, -5, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
           >
             <img
               src="/productos/icono-pinguino.png"
@@ -32,19 +32,25 @@ const Preloader = () => {
         >
           <h1 className="text-4xl font-poppins font-bold text-white mb-2">
             <motion.span
-              animate={{ textShadow: ['0px 0px 0px rgba(255,255,255,0)', '0px 0px 20px rgba(255,255,255,0.8)', '0px 0px 0px rgba(255,255,255,0)'] }}
+              animate={{
+                textShadow: [
+                  '0px 0px 0px rgba(255,255,255,0)',
+                  '0px 0px 20px rgba(255,255,255,0.8)',
+                  '0px 0px 0px rgba(255,255,255,0)',
+                ],
+              }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               BABY CASH
             </motion.span>
           </h1>
-          <motion.p 
+          <motion.p
             className="text-white/90 font-inter text-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            Pañalera y variedades Soffy's
+            Pañalera y variedades {`Soffy's`}
           </motion.p>
         </motion.div>
 
@@ -61,12 +67,12 @@ const Preloader = () => {
               className="w-3 h-3 bg-white rounded-full"
               animate={{
                 scale: [1, 1.5, 1],
-                opacity: [0.5, 1, 0.5]
+                opacity: [0.5, 1, 0.5],
               }}
               transition={{
                 duration: 1.5,
                 repeat: Infinity,
-                delay: index * 0.2
+                delay: index * 0.2,
               }}
             />
           ))}
@@ -82,7 +88,7 @@ const Preloader = () => {
         </motion.p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Preloader
+export default Preloader;

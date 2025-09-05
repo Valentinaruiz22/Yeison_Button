@@ -35,14 +35,14 @@ const Productos: React.FC = () => {
   // Obtener categorías únicas
   const categories = useMemo(() => {
     const uniqueCategories = Array.from(
-      new Set(mappedProducts.map(p => p.category).filter(Boolean))
+      new Set(mappedProducts.map((p) => p.category).filter(Boolean))
     ) as string[];
     return ['all', ...uniqueCategories];
   }, [mappedProducts]);
 
   // Filtrar y ordenar productos
   const filteredAndSortedProducts = useMemo(() => {
-    let filtered = mappedProducts.filter(product => {
+    let filtered = mappedProducts.filter((product) => {
       const matchesSearch =
         product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         product.description?.toLowerCase().includes(searchTerm.toLowerCase());
@@ -91,7 +91,9 @@ const Productos: React.FC = () => {
               Nuestros <span className="text-baby-pink">Productos</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-              Descubre nuestra amplia selección de productos de alta calidad para el cuidado y bienestar de tu bebé. Cada artículo ha sido cuidadosamente seleccionado por nuestros expertos.
+              Descubre nuestra amplia selección de productos de alta calidad para el cuidado y
+              bienestar de tu bebé. Cada artículo ha sido cuidadosamente seleccionado por nuestros
+              expertos.
             </p>
           </motion.div>
         </div>
@@ -153,7 +155,8 @@ const Productos: React.FC = () => {
             {/* Results count */}
             <div className="flex items-center justify-center lg:justify-end">
               <span className="text-gray-600 font-inter">
-                {filteredAndSortedProducts.length} producto{filteredAndSortedProducts.length !== 1 ? 's' : ''}
+                {filteredAndSortedProducts.length} producto
+                {filteredAndSortedProducts.length !== 1 ? 's' : ''}
               </span>
             </div>
           </motion.div>
@@ -230,7 +233,7 @@ const Productos: React.FC = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {categories.slice(1).map((category, index) => {
-                const categoryCount = mappedProducts.filter(p => p.category === category).length;
+                const categoryCount = mappedProducts.filter((p) => p.category === category).length;
                 return (
                   <motion.button
                     key={category}
@@ -279,10 +282,7 @@ const Productos: React.FC = () => {
             <p className="text-xl text-gray-600 mb-8 font-inter">
               Contáctanos y te ayudaremos a encontrar el producto perfecto para tu bebé
             </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <LinkButton
                 href="/contacto"
                 size="lg"

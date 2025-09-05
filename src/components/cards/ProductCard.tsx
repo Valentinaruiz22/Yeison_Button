@@ -17,7 +17,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     addToCart({
-      id: product.TITULO, 
+      id: product.TITULO,
       name: product.TITULO,
       price: product.PRECIO,
       quantity: 1,
@@ -34,7 +34,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
   };
 
   return (
-    <Card className="group overflow-hidden rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300" hover={true}>
+    <Card
+      className="group overflow-hidden rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300"
+      hover={true}
+    >
       {/* Imagen del producto */}
       <div className="relative mb-4 overflow-hidden rounded-lg bg-gray-100 aspect-square">
         <img
@@ -46,7 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
             target.src = '/images/productos/placeholder.jpg';
           }}
         />
-        
+
         {/* Overlay con acciones */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
           <motion.div
@@ -85,24 +88,16 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
           <h3 className="font-poppins font-semibold text-lg text-baby-gray line-clamp-2">
             {product.TITULO}
           </h3>
-          <p className="text-sm text-gray-600 mt-1">
-            {product.OPCIONES}
-          </p>
+          <p className="text-sm text-gray-600 mt-1">{product.OPCIONES}</p>
         </div>
 
-        <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">
-          {product.DESCRIPCION}
-        </p>
+        <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">{product.DESCRIPCION}</p>
 
         {/* Precio y detalle */}
         <div className="space-y-2">
           <div className="flex items-baseline justify-between">
-            <span className="text-2xl font-bold text-baby-gray">
-              {formatPrice(product.PRECIO)}
-            </span>
-            <span className="text-sm text-gray-500">
-              {product.DETALLEPRECIO}
-            </span>
+            <span className="text-2xl font-bold text-baby-gray">{formatPrice(product.PRECIO)}</span>
+            <span className="text-sm text-gray-500">{product.DETALLEPRECIO}</span>
           </div>
         </div>
 

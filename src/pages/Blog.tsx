@@ -2,10 +2,10 @@ import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Tag, Search, TrendingUp } from 'lucide-react';
 import { BLOG_POSTS } from '../data/blog';
-import  BlogCard  from '../components/cards/BlogCard';
-import  Input  from '../components/ui/input';
-import  Button  from '../components/ui/Button';
-import  Card  from '../components/ui/Card';
+import BlogCard from '../components/cards/BlogCard';
+import Input from '../components/ui/input';
+import Button from '../components/ui/Button';
+import Card from '../components/ui/Card';
 
 const Blog: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,26 +13,28 @@ const Blog: React.FC = () => {
 
   // Obtener categorías únicas
   const categories = useMemo(() => {
-    const uniqueCategories = Array.from(new Set(BLOG_POSTS.map(post => post.category)));
+    const uniqueCategories = Array.from(new Set(BLOG_POSTS.map((post) => post.category)));
     return ['all', ...uniqueCategories];
   }, []);
 
   // Filtrar posts
   const filteredPosts = useMemo(() => {
-    return BLOG_POSTS.filter(post => {
-      const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    return BLOG_POSTS.filter((post) => {
+      const matchesSearch =
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
-      
+
       return matchesSearch && matchesCategory;
     });
   }, [searchTerm, selectedCategory]);
 
   // Posts destacados (los más recientes)
   const featuredPosts = useMemo(() => {
-    return BLOG_POSTS
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-      .slice(0, 3);
+    return BLOG_POSTS.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(
+      0,
+      3
+    );
   }, []);
 
   const formatCategoryName = (category: string) => {
@@ -55,7 +57,7 @@ const Blog: React.FC = () => {
               Nuestro <span className="text-baby-pink">Blog</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-              Consejos, tips y artículos sobre el cuidado de tu bebé. Todo lo que necesitas saber 
+              Consejos, tips y artículos sobre el cuidado de tu bebé. Todo lo que necesitas saber
               para brindarle lo mejor a tu pequeño tesoro.
             </p>
           </motion.div>
@@ -151,7 +153,8 @@ const Blog: React.FC = () => {
             className="mt-4 text-center"
           >
             <span className="text-gray-600 font-inter">
-              {filteredPosts.length} artículo{filteredPosts.length !== 1 ? 's' : ''} encontrado{filteredPosts.length !== 1 ? 's' : ''}
+              {filteredPosts.length} artículo{filteredPosts.length !== 1 ? 's' : ''} encontrado
+              {filteredPosts.length !== 1 ? 's' : ''}
             </span>
           </motion.div>
         </div>
@@ -238,7 +241,7 @@ const Blog: React.FC = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {categories.slice(1).map((category, index) => {
-                const categoryCount = BLOG_POSTS.filter(p => p.category === category).length;
+                const categoryCount = BLOG_POSTS.filter((p) => p.category === category).length;
                 return (
                   <motion.button
                     key={category}
@@ -286,21 +289,18 @@ const Blog: React.FC = () => {
               ¿Te gustó nuestro contenido?
             </h2>
             <p className="text-xl text-white/90 mb-8 font-inter">
-              Suscríbete a nuestro newsletter y recibe los mejores consejos para el cuidado de tu bebé
+              Suscríbete a nuestro newsletter y recibe los mejores consejos para el cuidado de tu
+              bebé
             </p>
-            
+
             <div className="max-w-md mx-auto flex gap-4 items-center">
-                <Input
-                  type="email"
-                  placeholder="tu@email.com"
-                  className="flex-1 bg-white p-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-baby-blue focus:border-transparent"
-                />
-                <Button
-                  className="text-baby-gray font-bold px-6"
-                >
-                  Suscribirse
-                </Button>
-              </div>
+              <Input
+                type="email"
+                placeholder="tu@email.com"
+                className="flex-1 bg-white p-2 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-baby-blue focus:border-transparent"
+              />
+              <Button className="text-baby-gray font-bold px-6">Suscribirse</Button>
+            </div>
           </motion.div>
         </div>
       </section>

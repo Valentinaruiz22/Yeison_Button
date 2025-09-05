@@ -1,46 +1,46 @@
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Truck, Shield, Heart, DollarSign, ArrowRight, Star } from 'lucide-react'
-import Button from '../components/ui/Button'
-import ProductCard from '../components/cards/ProductCard'
-import TestimonialCard from '../components/cards/TestimonialCard'
-import BlogCard from '../components/cards/BlogCard'
-import { PRODUCTS } from '../data/products'
-import { TESTIMONIALS } from '../data/testimonials'
-import { BLOG_POSTS } from '../data/blog'
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Truck, Shield, Heart, DollarSign, ArrowRight, Star } from 'lucide-react';
+import Button from '../components/ui/Button';
+import ProductCard from '../components/cards/ProductCard';
+import TestimonialCard from '../components/cards/TestimonialCard';
+import BlogCard from '../components/cards/BlogCard';
+import { PRODUCTS } from '../data/products';
+import { TESTIMONIALS } from '../data/testimonials';
+import { BLOG_POSTS } from '../data/blog';
 
 const Home = () => {
   // Productos destacados (primeros 6)
-  const featuredProducts = PRODUCTS.slice(0, 6)
-  
+  const featuredProducts = PRODUCTS.slice(0, 6);
+
   // Testimonios destacados (primeros 3)
-  const featuredTestimonials = TESTIMONIALS.slice(0, 3)
-  
+  const featuredTestimonials = TESTIMONIALS.slice(0, 3);
+
   // Artículos destacados del blog (primeros 3)
-  const featuredPosts = BLOG_POSTS.slice(0, 3)
+  const featuredPosts = BLOG_POSTS.slice(0, 3);
 
   const benefits = [
     {
       icon: Truck,
       title: 'Envíos Rápidos',
-      description: 'Entrega en 24-48 horas en Bogotá y principales ciudades de Colombia.'
+      description: 'Entrega en 24-48 horas en Bogotá y principales ciudades de Colombia.',
     },
     {
       icon: Shield,
       title: 'Productos Originales',
-      description: 'Garantizamos la autenticidad y calidad de todos nuestros productos.'
+      description: 'Garantizamos la autenticidad y calidad de todos nuestros productos.',
     },
     {
       icon: Heart,
       title: 'Atención Personalizada',
-      description: 'Te asesoramos para encontrar los mejores productos para tu bebé.'
+      description: 'Te asesoramos para encontrar los mejores productos para tu bebé.',
     },
     {
       icon: DollarSign,
       title: 'Precios Justos',
-      description: 'Ofrecemos los mejores precios del mercado sin comprometer la calidad.'
-    }
-  ]
+      description: 'Ofrecemos los mejores precios del mercado sin comprometer la calidad.',
+    },
+  ];
 
   return (
     <div className="min-h-screen">
@@ -62,7 +62,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
               className="text-center lg:text-left"
             >
-              <motion.h1 
+              <motion.h1
                 className="text-4xl sm:text-5xl lg:text-6xl font-poppins font-bold text-baby-gray mb-6"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -73,26 +73,26 @@ const Home = () => {
                 </span>
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 className="text-xl text-gray-600 mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Pañalera y variedades Soffy's
+                Pañalera y variedades {`Soffy's`}
               </motion.p>
 
-              <motion.p 
+              <motion.p
                 className="text-lg text-gray-600 mb-8 max-w-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Todo lo que necesitas para tu bebé en un solo lugar. Productos de calidad, 
-                precios justos y la mejor atención para tu familia.
+                Todo lo que necesitas para tu bebé en un solo lugar. Productos de calidad, precios
+                justos y la mejor atención para tu familia.
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ const Home = () => {
                     <ArrowRight size={20} />
                   </Button>
                 </Link>
-                
+
                 <Link to="/contacto">
                   <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                     Contáctanos
@@ -117,7 +117,7 @@ const Home = () => {
             <motion.div
               className="relative w-56 sm:w-64 lg:w-72 mx-auto"
               animate={{ y: [10, -10, 10] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             >
               <img
                 src="/productos/icono-pinguino.png"
@@ -137,7 +137,6 @@ const Home = () => {
                 transition={{ duration: 3, repeat: Infinity, delay: 1 }}
               />
             </motion.div>
-
           </div>
         </div>
       </section>
@@ -176,9 +175,7 @@ const Home = () => {
                 <h3 className="text-xl font-poppins font-semibold text-baby-gray mb-2">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {benefit.description}
-                </p>
+                <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
@@ -307,11 +304,11 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <BlogCard 
+                <BlogCard
                   post={post}
                   onReadMore={() => {
                     // Aquí iría la navegación al artículo completo
-                    console.log('Leer más:', post.id)
+                    console.log('Leer más:', post.id);
                   }}
                 />
               </motion.div>
@@ -348,12 +345,13 @@ const Home = () => {
               ¿Listo para visitar nuestra tienda?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Ven y descubre todos nuestros productos. Te esperamos con la mejor atención y los mejores precios.
+              Ven y descubre todos nuestros productos. Te esperamos con la mejor atención y los
+              mejores precios.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/productos">
-                <Button 
-                  variant="secondary" 
+                <Button
+                  variant="secondary"
                   size="lg"
                   className=" text-baby-blue hover:bg-gray-100 w-full sm:w-auto"
                 >
@@ -361,8 +359,8 @@ const Home = () => {
                 </Button>
               </Link>
               <Link to="/contacto">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="lg"
                   className="border-white text-white hover:text-baby-blue w-full sm:w-auto"
                 >
@@ -374,7 +372,7 @@ const Home = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

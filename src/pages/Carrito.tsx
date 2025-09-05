@@ -6,16 +6,9 @@ import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import LinkButton from '../components/ui/LinkButton';
 
-
 const Carrito: React.FC = () => {
-  const { 
-    items, 
-    updateQuantity, 
-    removeFromCart, 
-    clearCart, 
-    getTotalPrice, 
-    getTotalItems 
-  } = useCart();
+  const { items, updateQuantity, removeFromCart, clearCart, getTotalPrice, getTotalItems } =
+    useCart();
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('es-CO', {
@@ -47,12 +40,7 @@ const Carrito: React.FC = () => {
             <p className="text-gray-600 font-inter mb-8">
               Agrega algunos productos increíbles para tu bebé y verás que aparecen aquí
             </p>
-            <LinkButton
-              href="/productos"
-              size="lg"
-              variant="primary"
-              className="flex items-center"
-            >
+            <LinkButton href="/productos" size="lg" variant="primary" className="flex items-center">
               <ShoppingBag className="w-5 h-5 mr-2" />
               Explorar Productos
             </LinkButton>
@@ -82,7 +70,7 @@ const Carrito: React.FC = () => {
                 {getTotalItems()} artículo{getTotalItems() !== 1 ? 's' : ''} en tu carrito
               </p>
             </div>
-            
+
             <div className="flex items-center gap-4">
               <LinkButton
                 href="/productos"
@@ -93,7 +81,7 @@ const Carrito: React.FC = () => {
                 <ShoppingBag className="w-5 h-5 mr-2" />
                 Seguir Comprando
               </LinkButton>
-              
+
               {items.length > 0 && (
                 <Button
                   onClick={clearCart}
@@ -157,11 +145,11 @@ const Carrito: React.FC = () => {
                         >
                           <Minus className="w-4 h-4" />
                         </Button>
-                        
+
                         <span className="w-8 text-center font-bold font-inter">
                           {item.quantity}
                         </span>
-                        
+
                         <Button
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
                           variant="ghost"

@@ -1,12 +1,12 @@
-import { forwardRef } from 'react'
-import type { InputHTMLAttributes } from 'react'
-import clsx from 'clsx'
+import { forwardRef } from 'react';
+import type { InputHTMLAttributes } from 'react';
+import clsx from 'clsx';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string
-  error?: string
-  helperText?: string
-  fullWidth?: boolean
+  label?: string;
+  error?: string;
+  helperText?: string;
+  fullWidth?: boolean;
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -18,12 +18,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       error && 'border-red-300 focus:border-red-500 focus:ring-red-500',
       // Las clases externas se agregan al final para que puedan sobrescribir las predeterminadas.
       className
-    )
+    );
 
     return (
       <div className={clsx('flex flex-col', fullWidth && 'w-full')}>
         {label && (
-          <label 
+          <label
             className="block text-sm font-medium leading-6 text-baby-gray mb-2"
             htmlFor={props.id}
           >
@@ -31,42 +31,33 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {props.required && <span className="text-red-500 ml-1">*</span>}
           </label>
         )}
-        
+
         <input
           ref={ref}
           className={inputClasses}
           aria-invalid={error ? 'true' : 'false'}
           aria-describedby={
-            error ? `${props.id}-error` : 
-            helperText ? `${props.id}-helper` : 
-            undefined
+            error ? `${props.id}-error` : helperText ? `${props.id}-helper` : undefined
           }
           {...props}
         />
 
         {error && (
-          <p 
-            id={`${props.id}-error`}
-            className="mt-2 text-sm text-red-600"
-            role="alert"
-          >
+          <p id={`${props.id}-error`} className="mt-2 text-sm text-red-600" role="alert">
             {error}
           </p>
         )}
 
         {helperText && !error && (
-          <p 
-            id={`${props.id}-helper`}
-            className="mt-2 text-sm text-gray-500"
-          >
+          <p id={`${props.id}-helper`} className="mt-2 text-sm text-gray-500">
             {helperText}
           </p>
         )}
       </div>
-    )
+    );
   }
-)
+);
 
-Input.displayName = 'Input'
+Input.displayName = 'Input';
 
-export default Input
+export default Input;

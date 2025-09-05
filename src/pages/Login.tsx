@@ -1,32 +1,32 @@
 // src/pages/Login.tsx
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useAuth } from "../contexts/AuthContext";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useAuth } from '../contexts/AuthContext';
 
 const Login: React.FC = () => {
   const { login } = useAuth(); // función de AuthContext
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [acceptedTerms, setAcceptedTerms] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
+    setError('');
 
     if (!acceptedTerms) {
-      setError("Debes aceptar los términos y el tratamiento de datos.");
+      setError('Debes aceptar los términos y el tratamiento de datos.');
       return;
     }
 
     try {
       await login(email, password); // simulando login con AuthContext
-      navigate("/"); // redirige al inicio
+      navigate('/'); // redirige al inicio
     } catch (err) {
-      setError("Credenciales inválidas. Inténtalo de nuevo.");
+      setError('Credenciales inválidas. Inténtalo de nuevo.');
     }
   };
 
@@ -53,17 +53,12 @@ const Login: React.FC = () => {
         </h2>
 
         {/* Error */}
-        {error && (
-          <p className="text-red-500 text-sm text-center mb-4">{error}</p>
-        )}
+        {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
 
         {/* Formulario */}
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               Correo electrónico
             </label>
             <input
@@ -78,10 +73,7 @@ const Login: React.FC = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Contraseña
             </label>
             <input
@@ -105,18 +97,12 @@ const Login: React.FC = () => {
               className="mt-1"
             />
             <label htmlFor="terms" className="text-sm text-gray-600">
-              Acepto los{" "}
-              <Link
-                to="/terminos"
-                className="text-baby-blue font-medium hover:underline"
-              >
+              Acepto los{' '}
+              <Link to="/terminos" className="text-baby-blue font-medium hover:underline">
                 términos y condiciones
-              </Link>{" "}
-              y el{" "}
-              <Link
-                to="/privacidad"
-                className="text-baby-blue font-medium hover:underline"
-              >
+              </Link>{' '}
+              y el{' '}
+              <Link to="/privacidad" className="text-baby-blue font-medium hover:underline">
                 tratamiento de datos
               </Link>
               .
@@ -136,19 +122,13 @@ const Login: React.FC = () => {
         {/* Links */}
         <div className="mt-6 text-center text-sm text-gray-600">
           <p>
-            ¿No tienes cuenta?{" "}
-            <Link
-              to="/register"
-              className="text-baby-blue font-medium hover:underline"
-            >
+            ¿No tienes cuenta?{' '}
+            <Link to="/register" className="text-baby-blue font-medium hover:underline">
               Regístrate aquí
             </Link>
           </p>
           <p className="mt-2">
-            <Link
-              to="/forgot-password"
-              className="text-baby-pink font-medium hover:underline"
-            >
+            <Link to="/forgot-password" className="text-baby-pink font-medium hover:underline">
               ¿Olvidaste tu contraseña?
             </Link>
           </p>

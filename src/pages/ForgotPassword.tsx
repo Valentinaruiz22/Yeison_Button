@@ -1,6 +1,6 @@
 // src/pages/ForgotPassword.tsx
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const ForgotPassword: React.FC = () => {
   return (
@@ -26,8 +26,8 @@ const ForgotPassword: React.FC = () => {
           transition={{ delay: 0.4 }}
           className="text-center text-gray-600 mb-6"
         >
-          No te preocupes, ingresa tu correo electrónico y te enviaremos
-          instrucciones para restablecerla.
+          No te preocupes, ingresa tu correo electrónico y te enviaremos instrucciones para
+          restablecerla.
         </motion.p>
 
         {/* Formulario */}
@@ -38,9 +38,7 @@ const ForgotPassword: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <label className="block text-gray-700 font-semibold mb-2">
-              Correo electrónico
-            </label>
+            <label className="block text-gray-700 font-semibold mb-2">Correo electrónico</label>
             <input
               type="email"
               placeholder="ejemplo@correo.com"
@@ -67,20 +65,14 @@ const ForgotPassword: React.FC = () => {
           className="text-center mt-6 space-y-2"
         >
           <p className="text-gray-600">
-            ¿Recordaste tu contraseña?{" "}
-            <Link
-              to="/login"
-              className="text-baby-blue font-semibold hover:underline"
-            >
+            ¿Recordaste tu contraseña?{' '}
+            <Link to="/login" className="text-baby-blue font-semibold hover:underline">
               Inicia sesión
             </Link>
           </p>
           <p className="text-gray-600">
-            ¿No tienes cuenta aún?{" "}
-            <Link
-              to="/register"
-              className="text-baby-blue font-semibold hover:underline"
-            >
+            ¿No tienes cuenta aún?{' '}
+            <Link to="/register" className="text-baby-blue font-semibold hover:underline">
               Regístrate
             </Link>
           </p>

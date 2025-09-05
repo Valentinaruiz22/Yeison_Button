@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion'
-import clsx from 'clsx'
-import type { ReactNode } from 'react'
+import { motion } from 'framer-motion';
+import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 interface CardProps {
-  children: ReactNode
-  className?: string
-  hover?: boolean
-  padding?: 'sm' | 'md' | 'lg'
-  onClick?: () => void
+  children: ReactNode;
+  className?: string;
+  hover?: boolean;
+  padding?: 'sm' | 'md' | 'lg';
+  onClick?: () => void;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -15,22 +15,17 @@ const Card: React.FC<CardProps> = ({
   className,
   hover = true,
   padding = 'md',
-  onClick
+  onClick,
 }) => {
   const paddingClasses = {
     sm: 'p-4',
     md: 'p-6',
-    lg: 'p-8'
-  }
+    lg: 'p-8',
+  };
 
-  const cardClasses = clsx(
-    'card',
-    paddingClasses[padding],
-    onClick && 'cursor-pointer',
-    className
-  )
+  const cardClasses = clsx('card', paddingClasses[padding], onClick && 'cursor-pointer', className);
 
-  const CardComponent = onClick ? motion.button : motion.div
+  const CardComponent = onClick ? motion.button : motion.div;
 
   return (
     <CardComponent
@@ -43,7 +38,7 @@ const Card: React.FC<CardProps> = ({
     >
       {children}
     </CardComponent>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

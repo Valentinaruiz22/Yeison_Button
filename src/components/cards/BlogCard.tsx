@@ -16,7 +16,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, onReadMore }) => {
     return new Date(dateString).toLocaleDateString('es-CO', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     });
   };
 
@@ -33,7 +33,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, onReadMore }) => {
             target.src = '/images/blog/placeholder.jpg';
           }}
         />
-        
+
         {/* Overlay sutil */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
@@ -57,9 +57,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, onReadMore }) => {
         </h3>
 
         {/* Extracto */}
-        <p className="text-gray-600 leading-relaxed mb-6 flex-1 line-clamp-3">
-          {post.excerpt}
-        </p>
+        <p className="text-gray-600 leading-relaxed mb-6 flex-1 line-clamp-3">{post.excerpt}</p>
 
         {/* Botón de leer más */}
         <div className="mt-auto">
@@ -70,10 +68,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, onReadMore }) => {
             aria-label={`Leer más sobre ${post.title}`}
           >
             Leer más
-            <motion.div
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-            >
+            <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
               <ArrowRight size={16} />
             </motion.div>
           </Button>

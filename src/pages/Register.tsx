@@ -1,32 +1,29 @@
 // src/pages/Register.tsx
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Register: React.FC = () => {
-
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [acceptedTerms, setAcceptedTerms] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
+    setError('');
 
     if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden.");
+      setError('Las contraseñas no coinciden.');
       return;
     }
 
     if (!acceptedTerms) {
-      setError("Debes aceptar los términos y el tratamiento de datos.");
+      setError('Debes aceptar los términos y el tratamiento de datos.');
       return;
     }
-
   };
 
   return (
@@ -52,17 +49,12 @@ const Register: React.FC = () => {
         </h2>
 
         {/* Error */}
-        {error && (
-          <p className="text-red-500 text-sm text-center mb-4">{error}</p>
-        )}
+        {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
 
         {/* Formulario */}
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
               Nombre completo
             </label>
             <input
@@ -77,10 +69,7 @@ const Register: React.FC = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               Correo electrónico
             </label>
             <input
@@ -95,10 +84,7 @@ const Register: React.FC = () => {
           </div>
 
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Contraseña
             </label>
             <input
@@ -140,18 +126,12 @@ const Register: React.FC = () => {
               className="mt-1"
             />
             <label htmlFor="terms" className="text-sm text-gray-600">
-              Acepto los{" "}
-              <Link
-                to="/terminos"
-                className="text-baby-blue font-medium hover:underline"
-              >
+              Acepto los{' '}
+              <Link to="/terminos" className="text-baby-blue font-medium hover:underline">
                 términos y condiciones
-              </Link>{" "}
-              y el{" "}
-              <Link
-                to="/privacidad"
-                className="text-baby-blue font-medium hover:underline"
-              >
+              </Link>{' '}
+              y el{' '}
+              <Link to="/privacidad" className="text-baby-blue font-medium hover:underline">
                 tratamiento de datos
               </Link>
               .
@@ -171,19 +151,13 @@ const Register: React.FC = () => {
         {/* Links */}
         <div className="mt-6 text-center text-sm text-gray-600">
           <p>
-            ¿Ya tienes cuenta?{" "}
-            <Link
-              to="/login"
-              className="text-baby-blue font-medium hover:underline"
-            >
+            ¿Ya tienes cuenta?{' '}
+            <Link to="/login" className="text-baby-blue font-medium hover:underline">
               Inicia sesión
             </Link>
           </p>
           <p className="mt-2">
-            <Link
-              to="/forgot-password"
-              className="text-baby-pink font-medium hover:underline"
-            >
+            <Link to="/forgot-password" className="text-baby-pink font-medium hover:underline">
               ¿Olvidaste tu contraseña?
             </Link>
           </p>

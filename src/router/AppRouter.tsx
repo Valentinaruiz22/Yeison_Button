@@ -1,25 +1,25 @@
-import React, { Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
-import { motion } from "framer-motion";
-import Preloader from "../components/ui/Preloader";
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
+import React, { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import Preloader from '../components/ui/Preloader';
+import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
 
 // Lazy loading de páginas
-const Home = React.lazy(() => import("../pages/Home"));
-const Nosotros = React.lazy(() => import("../pages/Nosotros"));
-const Productos = React.lazy(() => import("../pages/Productos"));
-const Carrito = React.lazy(() => import("../pages/Carrito"));
-const Perfil = React.lazy(() => import("../pages/Perfil"));
-const Contacto = React.lazy(() => import("../pages/Contacto"));
-const Blog = React.lazy(() => import("../pages/Blog"));
-const Testimonios = React.lazy(() => import("../pages/Testimonios"));
-const NotFound = React.lazy(() => import("../pages/NotFound"));
+const Home = React.lazy(() => import('../pages/Home'));
+const Nosotros = React.lazy(() => import('../pages/Nosotros'));
+const Productos = React.lazy(() => import('../pages/Productos'));
+const Carrito = React.lazy(() => import('../pages/Carrito'));
+const Perfil = React.lazy(() => import('../pages/Perfil'));
+const Contacto = React.lazy(() => import('../pages/Contacto'));
+const Blog = React.lazy(() => import('../pages/Blog'));
+const Testimonios = React.lazy(() => import('../pages/Testimonios'));
+const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 // Auth pages
-const Login = React.lazy(() => import("../pages/Login"));
-const Register = React.lazy(() => import("../pages/Register"));
-const ForgotPassword = React.lazy(() => import("../pages/ForgotPassword"));
+const Login = React.lazy(() => import('../pages/Login'));
+const Register = React.lazy(() => import('../pages/Register'));
+const ForgotPassword = React.lazy(() => import('../pages/ForgotPassword'));
 
 const AppRouter: React.FC = () => {
   return (

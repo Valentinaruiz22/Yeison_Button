@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MessageSquare, Star, Users, Heart, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { TESTIMONIALS } from '../data/testimonials';
-import  TestimonialCard  from '../components/cards/TestimonialCard';
-import  Button  from '../components/ui/Button';
-import  Card  from '../components/ui/Card';
+import TestimonialCard from '../components/cards/TestimonialCard';
+import Button from '../components/ui/Button';
+import Card from '../components/ui/Card';
 import LinkButton from '../components/ui/LinkButton';
 
 const Testimonios: React.FC = () => {
@@ -13,7 +13,7 @@ const Testimonios: React.FC = () => {
   // Calcular estadísticas
   const totalTestimonials = TESTIMONIALS.length;
   const averageRating = TESTIMONIALS.reduce((acc, t) => acc + t.rating, 0) / totalTestimonials;
-  const fiveStarCount = TESTIMONIALS.filter(t => t.rating === 5).length;
+  const fiveStarCount = TESTIMONIALS.filter((t) => t.rating === 5).length;
   const satisfactionRate = Math.round((fiveStarCount / totalTestimonials) * 100);
 
   const nextTestimonial = () => {
@@ -28,9 +28,7 @@ const Testimonios: React.FC = () => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`w-5 h-5 ${
-          i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
-        }`}
+        className={`w-5 h-5 ${i < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
       />
     ));
   };
@@ -50,8 +48,8 @@ const Testimonios: React.FC = () => {
               Lo que dicen nuestros <span className="text-baby-pink">Clientes</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-              Miles de familias confían en Baby Cash para el cuidado de sus bebés. 
-              Estas son sus experiencias reales con nuestros productos y servicios.
+              Miles de familias confían en Baby Cash para el cuidado de sus bebés. Estas son sus
+              experiencias reales con nuestros productos y servicios.
             </p>
           </motion.div>
         </div>
@@ -134,7 +132,7 @@ const Testimonios: React.FC = () => {
                 </div>
 
                 <blockquote className="text-xl md:text-2xl font-inter text-gray-700 mb-6 italic">
-                  "{TESTIMONIALS[currentTestimonial].message}"
+                  {`"TESTIMONIALS[currentTestimonial].message"`}
                 </blockquote>
 
                 <div className="flex justify-center mb-4">
@@ -245,9 +243,9 @@ const Testimonios: React.FC = () => {
           <Card className="p-8">
             <div className="space-y-4">
               {[5, 4, 3, 2, 1].map((stars) => {
-                const count = TESTIMONIALS.filter(t => t.rating === stars).length;
+                const count = TESTIMONIALS.filter((t) => t.rating === stars).length;
                 const percentage = (count / totalTestimonials) * 100;
-                
+
                 return (
                   <motion.div
                     key={stars}
@@ -261,7 +259,7 @@ const Testimonios: React.FC = () => {
                       <span className="font-medium text-gray-700">{stars}</span>
                       <Star className="w-4 h-4 text-yellow-400 fill-current" />
                     </div>
-                    
+
                     <div className="flex-1 bg-gray-200 rounded-full h-3 overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
@@ -271,7 +269,7 @@ const Testimonios: React.FC = () => {
                         className="h-full bg-gradient-to-r from-baby-blue to-baby-pink rounded-full"
                       />
                     </div>
-                    
+
                     <span className="w-16 text-right font-medium text-gray-700">
                       {count} ({percentage.toFixed(0)}%)
                     </span>
@@ -311,10 +309,7 @@ const Testimonios: React.FC = () => {
             <p className="text-xl text-white/90 mb-8 font-inter">
               Únete a las miles de familias que confían en Baby Cash para el cuidado de sus bebés
             </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <LinkButton
                 href="/productos"
                 size="lg"

@@ -28,13 +28,12 @@ export interface CartContextType {
   getTotalItems: () => number;
 }
 
-
 // Tipos de autenticación
 export type User = {
   id: string;
   email: string;
   name: string;
-}
+};
 
 export type AuthContextType = {
   user: User | null;
@@ -42,19 +41,19 @@ export type AuthContextType = {
   logout: () => void;
   isAuthenticated: boolean;
   loading: boolean;
-}
+};
 
 // Tipos de formularios
 export type LoginFormData = {
   email: string;
   password: string;
-}
+};
 
 export type ContactFormData = {
   name: string;
   email: string;
   message: string;
-}
+};
 
 // Tipos de blog y testimonios
 export type BlogPost = {
@@ -65,8 +64,8 @@ export type BlogPost = {
   image: string;
   date: string;
   author: string;
-  category: string; 
-}
+  category: string;
+};
 
 export type Testimonial = {
   id: string;
@@ -75,17 +74,17 @@ export type Testimonial = {
   rating: number;
   avatar?: string;
   location?: string;
-}
+};
 
 // Tipos de API responses
 export type ApiResponse<T> = {
   success: boolean;
   data: T;
   message?: string;
-}
+};
 
 // Tipos de coordenadas para Mapbox
 export type Coordinates = {
   longitude: number;
   latitude: number;
-}
+};

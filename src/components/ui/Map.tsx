@@ -1,8 +1,8 @@
-import type { FC } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
+import type { FC } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
 
-import "leaflet/dist/leaflet.css";
+import 'leaflet/dist/leaflet.css';
 
 // 📍 Coordenadas de la tienda (Torre Colpatria, Bogotá)
 const STORE_COORDINATES: [number, number] = [4.606734, -74.072235];
@@ -38,8 +38,7 @@ const Map: FC = () => {
             <h4 className="font-semibold text-baby-blue">📍 Baby Cash</h4>
             <p className="text-sm text-gray-600">Torre Colpatria, Bogotá D.C.</p>
             <p className="text-xs text-gray-500 mt-1">
-              Lun-Sáb:{" "}
-              <span className="text-baby-blue">8:00 AM - 7:00 PM</span>
+              Lun-Sáb: <span className="text-baby-blue">8:00 AM - 7:00 PM</span>
             </p>
             <a
               href={`http://maps.google.com/?q=${STORE_COORDINATES[0]},${STORE_COORDINATES[1]}`}

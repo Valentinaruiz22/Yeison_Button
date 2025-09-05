@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react'
-import type { ReactNode } from 'react'
+import React, { useEffect } from 'react';
+import type { ReactNode } from 'react';
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
-import Button from './Button'
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
+import Button from './Button';
 
 interface ModalProps {
-  isOpen: boolean
-  onClose: () => void
-  title?: string
-  children: ReactNode
-  size?: 'sm' | 'md' | 'lg' | 'xl'
-  showCloseButton?: boolean
+  isOpen: boolean;
+  onClose: () => void;
+  title?: string;
+  children: ReactNode;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  showCloseButton?: boolean;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -20,34 +20,34 @@ const Modal: React.FC<ModalProps> = ({
   title,
   children,
   size = 'md',
-  showCloseButton = true
+  showCloseButton = true,
 }) => {
   // Manejar escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
-        onClose()
+        onClose();
       }
-    }
+    };
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape)
+      document.addEventListener('keydown', handleEscape);
       // Prevenir scroll del body
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden';
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape)
-      document.body.style.overflow = 'unset'
-    }
-  }, [isOpen, onClose])
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
 
   const sizeClasses = {
     sm: 'max-w-md',
     md: 'max-w-lg',
     lg: 'max-w-2xl',
-    xl: 'max-w-4xl'
-  }
+    xl: 'max-w-4xl',
+  };
 
   return (
     <AnimatePresence>
@@ -73,13 +73,13 @@ const Modal: React.FC<ModalProps> = ({
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
-            aria-labelledby={title ? "modal-title" : undefined}
+            aria-labelledby={title ? 'modal-title' : undefined}
           >
             {/* Header */}
             {(title || showCloseButton) && (
               <div className="flex items-center justify-between p-6 border-b border-gray-200">
                 {title && (
-                  <h2 
+                  <h2
                     id="modal-title"
                     className="text-xl font-poppins font-semibold text-baby-gray"
                   >
@@ -101,14 +101,12 @@ const Modal: React.FC<ModalProps> = ({
             )}
 
             {/* Content */}
-            <div className="p-6">
-              {children}
-            </div>
+            <div className="p-6">{children}</div>
           </motion.div>
         </div>
       )}
     </AnimatePresence>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

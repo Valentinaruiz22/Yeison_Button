@@ -8,46 +8,50 @@ const Nosotros: React.FC = () => {
     {
       icon: Heart,
       title: 'Amor por los Bebés',
-      description: 'Cada producto es seleccionado pensando en el bienestar y la felicidad de tu pequeño tesoro.'
+      description:
+        'Cada producto es seleccionado pensando en el bienestar y la felicidad de tu pequeño tesoro.',
     },
     {
       icon: Users,
       title: 'Familia',
-      description: 'Entendemos las necesidades de las familias porque también somos padres y madres.'
+      description:
+        'Entendemos las necesidades de las familias porque también somos padres y madres.',
     },
     {
       icon: Target,
       title: 'Calidad',
-      description: 'Solo ofrecemos productos de las mejores marcas con estándares internacionales de calidad.'
+      description:
+        'Solo ofrecemos productos de las mejores marcas con estándares internacionales de calidad.',
     },
     {
       icon: Star,
       title: 'Confianza',
-      description: 'Más de 10 años siendo el aliado de confianza de miles de familias en Colombia.'
-    }
+      description: 'Más de 10 años siendo el aliado de confianza de miles de familias en Colombia.',
+    },
   ];
 
   const timeline = [
     {
       step: '01',
       title: 'Consulta Personalizada',
-      description: 'Te asesoramos sobre los mejores productos según la edad y necesidades de tu bebé.'
+      description:
+        'Te asesoramos sobre los mejores productos según la edad y necesidades de tu bebé.',
     },
     {
       step: '02',
       title: 'Selección Cuidadosa',
-      description: 'Elegimos cada artículo con amor, verificando calidad y seguridad.'
+      description: 'Elegimos cada artículo con amor, verificando calidad y seguridad.',
     },
     {
       step: '03',
       title: 'Entrega Segura',
-      description: 'Empacamos con cuidado especial y entregamos en tiempo record.'
+      description: 'Empacamos con cuidado especial y entregamos en tiempo record.',
     },
     {
       step: '04',
       title: 'Seguimiento Total',
-      description: 'Te acompañamos después de la compra para asegurar tu satisfacción.'
-    }
+      description: 'Te acompañamos después de la compra para asegurar tu satisfacción.',
+    },
   ];
 
   return (
@@ -65,9 +69,9 @@ const Nosotros: React.FC = () => {
               Conoce a <span className="text-baby-pink">Baby Cash</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
-              Somos Pañalera y Variedades Soffy's, tu aliado de confianza en el cuidado de los más pequeños. 
-              Con más de una década de experiencia, nos dedicamos a brindar productos de calidad superior 
-              para que cada momento con tu bebé sea especial.
+              Somos Pañalera y Variedades {`Soffy's`}, tu aliado de confianza en el cuidado de los
+              más pequeños. Con más de una década de experiencia, nos dedicamos a brindar productos
+              de calidad superior para que cada momento con tu bebé sea especial.
             </p>
           </motion.div>
 
@@ -124,9 +128,7 @@ const Nosotros: React.FC = () => {
                   <h3 className="text-xl font-bold font-poppins text-baby-gray mb-3">
                     {value.title}
                   </h3>
-                  <p className="text-gray-600 font-inter leading-relaxed">
-                    {value.description}
-                  </p>
+                  <p className="text-gray-600 font-inter leading-relaxed">{value.description}</p>
                 </Card>
               </motion.div>
             ))}
@@ -150,8 +152,8 @@ const Nosotros: React.FC = () => {
                   Nuestra Misión
                 </h3>
                 <p className="text-gray-600 font-inter leading-relaxed text-lg">
-                  Brindar a las familias colombianas productos de alta calidad para el cuidado y 
-                  bienestar de sus bebés, con un servicio personalizado, precios justos y la 
+                  Brindar a las familias colombianas productos de alta calidad para el cuidado y
+                  bienestar de sus bebés, con un servicio personalizado, precios justos y la
                   confianza de más de una década de experiencia en el mercado.
                 </p>
               </Card>
@@ -169,9 +171,9 @@ const Nosotros: React.FC = () => {
                   Nuestra Visión
                 </h3>
                 <p className="text-gray-600 font-inter leading-relaxed text-lg">
-                  Ser la pañalera líder en Colombia, reconocida por la excelencia en nuestros 
-                  productos y servicios, expandiendo nuestra presencia a nivel nacional y 
-                  siendo el primer aliado que las familias elijan para el cuidado de sus bebés.
+                  Ser la pañalera líder en Colombia, reconocida por la excelencia en nuestros
+                  productos y servicios, expandiendo nuestra presencia a nivel nacional y siendo el
+                  primer aliado que las familias elijan para el cuidado de sus bebés.
                 </p>
               </Card>
             </motion.div>
@@ -225,9 +227,7 @@ const Nosotros: React.FC = () => {
                       <h3 className="text-xl font-bold font-poppins text-baby-gray mb-3">
                         {item.title}
                       </h3>
-                      <p className="text-gray-600 font-inter leading-relaxed">
-                        {item.description}
-                      </p>
+                      <p className="text-gray-600 font-inter leading-relaxed">{item.description}</p>
                     </Card>
                   </div>
                 </motion.div>
