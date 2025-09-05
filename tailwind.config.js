@@ -1,22 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
         'baby-blue': '#A7D8FF',
-        'baby-pink': '#FFC1E3', 
+        'baby-pink': '#FFC1E3',
         'baby-mint': '#C8F7DC',
         'baby-light': '#F9FAFB',
         'baby-gray': '#1F2937',
-        'baby-purple': '#BB86FC'
+        'baby-purple': '#BB86FC',
       },
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
-        'inter': ['Inter', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       animation: {
         'bounce-slow': 'bounce 3s infinite',
@@ -36,4 +33,4 @@ export default {
     },
   },
   plugins: [],
-}
+};
