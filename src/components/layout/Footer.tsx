@@ -127,7 +127,7 @@ const Footer = () => {
 
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com/babycash"
+                href="https://www.facebook.com/share/1Zyx71Hjtd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-baby-blue hover:bg-baby-blue hover:text-white transition-colors shadow-md tap-target"
@@ -137,7 +137,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://instagram.com/babycash"
+                href="https://www.facebook.com/share/1Zyx71Hjtd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-baby-pink hover:bg-baby-pink hover:text-white transition-colors shadow-md tap-target"
