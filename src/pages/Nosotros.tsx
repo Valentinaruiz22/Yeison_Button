@@ -82,8 +82,8 @@ const Nosotros: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative mb-16"
           >
-            <div className="aspect-video bg-gradient-to-r from-baby-blue to-baby-pink rounded-3xl flex items-center justify-center shadow-2xl">
-              <div className="text-center text-white">
+            <div className="aspect-video w-full max-w-6xl mx-auto rounded-3xl flex items-center justify-center shadow-2xl bg-cover bg-center bg-[url('https://cdn.pixabay.com/photo/2015/04/11/20/17/feet-718146_640.jpg')]">
+              <div className="text-center text-white ">
                 <Heart className="w-20 h-20 mx-auto mb-4" />
                 <h2 className="text-3xl font-bold font-poppins">Tu familia es nuestra prioridad</h2>
               </div>

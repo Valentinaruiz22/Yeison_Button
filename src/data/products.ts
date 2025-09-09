@@ -3,7 +3,8 @@ import type { Product } from '../types';
 export const PRODUCTS: Product[] = [
   {
     TITULO: 'Pañal Winny',
-    DESCRIPCION: 'Ideales para recién nacidos, estos pañales están diseñados para cuidar la piel delicada del bebé desde el primer día.',
+    DESCRIPCION:
+      'Ideales para recién nacidos, estos pañales están diseñados para cuidar la piel delicada del bebé desde el primer día.',
     OPCIONES: 'Etapa 0',
     PRECIO: 23600,
     DETALLEPRECIO: 'paquete de 30',
@@ -62,7 +63,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     TITULO: 'Toallitas Húmedas Premium',
-    DESCRIPCION:'Ideales para limpieza suave y efectiva en manos, cara y cuerpo del bebé.',
+    DESCRIPCION: 'Ideales para limpieza suave y efectiva en manos, cara y cuerpo del bebé.',
     OPCIONES: 'un paquete',
     PRECIO: 12000,
     DETALLEPRECIO: '80 unidades',
@@ -161,7 +162,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     TITULO: 'Sonajero Educativo',
-    DESCRIPCION:'Juguete ideales para estimular el desarrollo sensorial y motriz de tu bebé.',
+    DESCRIPCION: 'Juguete ideales para estimular el desarrollo sensorial y motriz de tu bebé.',
     OPCIONES: 'varios modelos',
     PRECIO: 25000,
     DETALLEPRECIO: 'unidad',

@@ -88,8 +88,8 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                Todo lo que necesitas para tu bebé en un solo lugar. Productos de calidad, precios
-                justos y la mejor atención para tu familia.
+                💕 “El lugar donde encuentras cuidado, dulzura y todo lo que tu pequeño necesita.”
+                💕
               </motion.p>
 
               <motion.div
@@ -155,7 +155,9 @@ const Home = () => {
               ¿Por qué elegir Baby Cash?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Nos comprometemos a brindar la mejor experiencia de compra para tu familia
+              Baby Cash es sinónimo de amor, cuidado y calidad.Nuestro propósito es acompañarte en
+              cada momento especial con tu bebé, asegurando que siempre tengas lo mejor a tu
+              alcance.
             </p>
           </motion.div>
 

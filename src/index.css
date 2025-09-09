@@ -1,6 +1,9 @@
+/* Import Leaflet styles: SIEMPRE arriba */
+@import 'leaflet/dist/leaflet.css';
+
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import Leaflet styles */
-@import 'leaflet/dist/leaflet.css';
+/* Tus estilos personalizados */
