@@ -1,5 +1,6 @@
 // Tipos de productos
-export type Product = {
+// Tipos de productos simulados (array local)
+export type ProductMock = {
   TITULO: string;
   DESCRIPCION: string;
   OPCIONES: string;
@@ -8,6 +9,19 @@ export type Product = {
   FOTO: string;
   CATEGORIA: string;
 };
+
+// Tipos de productos reales (base de datos)
+export type Product = {
+  id_producto: string;
+  nombre_producto: string;
+  descripcion_producto: string;
+  precio_producto: number;
+  imagen_producto: string;
+  categoria_producto: string;
+  detalle_precio?: string;
+  opciones?: string;
+};
+
 
 // Tipos de carrito
 export interface CartItem {

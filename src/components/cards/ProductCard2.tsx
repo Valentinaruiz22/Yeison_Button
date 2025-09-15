@@ -1,27 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingCart, Eye } from 'lucide-react';
-import type { ProductMock } from '../../types';
+import type { Product } from '../../types';
 import { useCart } from '../../contexts/CartContext';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
 
 interface ProductCardProps {
-  product: ProductMock;
+  product: Product;
   onViewDetails?: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => {
+const ProductCard2: React.FC<ProductCardProps> = ({ product, onViewDetails }) => {
   const { addToCart } = useCart();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     addToCart({
-      id: product.TITULO,
-      name: product.TITULO,
-      price: product.PRECIO,
+      id: product.id_producto,
+      name: product.nombre_producto,
+      price: product.precio_producto,
       quantity: 1,
-      image: product.FOTO,
+      image: product.imagen_producto,
     });
   };
 
@@ -41,8 +41,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
       {/* Imagen del producto */}
       <div className="relative mb-4 overflow-hidden rounded-lg bg-gray-100 aspect-square">
         <img
-          src={product.FOTO}
-          alt={product.TITULO}
+          src={product.imagen_producto}
+          alt={product.nombre_producto}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
@@ -66,7 +66,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
                   onViewDetails();
                 }}
                 className="shadow-lg"
-                aria-label={`Ver detalles de ${product.TITULO}`}
+                aria-label={`Ver detalles de ${product.nombre_producto}`}
               >
                 <Eye size={16} />
               </Button>
@@ -77,7 +77,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
         {/* Badge de categoría */}
         <div className="absolute top-3 left-3">
           <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-baby-blue/90 text-white backdrop-blur-sm">
-            {product.CATEGORIA}
+            {product.categoria_producto}
           </span>
         </div>
       </div>
@@ -86,18 +86,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
       <div className="space-y-3">
         <div>
           <h3 className="font-poppins font-semibold text-lg text-baby-gray line-clamp-2">
-            {product.TITULO}
+            {product.nombre_producto}
           </h3>
-          <p className="text-sm text-gray-600 mt-1">{product.OPCIONES}</p>
+          <p className="text-sm text-gray-600 mt-1">{product.opciones}</p>
         </div>
 
-        <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">{product.DESCRIPCION}</p>
+        <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">{product.descripcion_producto}</p>
 
         {/* Precio y detalle */}
         <div className="space-y-2">
           <div className="flex items-baseline justify-between">
-            <span className="text-2xl font-bold text-baby-gray">{formatPrice(product.PRECIO)}</span>
-            <span className="text-sm text-gray-500">{product.DETALLEPRECIO}</span>
+            <span className="text-2xl font-bold text-baby-gray">{formatPrice(product.precio_producto)}</span>
+            <span className="text-sm text-gray-500">{product.detalle_precio}</span>
           </div>
         </div>
 
@@ -107,7 +107,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
           fullWidth
           onClick={handleAddToCart}
           className="mt-4"
-          aria-label={`Agregar ${product.TITULO} al carrito`}
+          aria-label={`Agregar ${product.nombre_producto} al carrito`}
         >
           <ShoppingCart size={18} />
           Agregar al Carrito
@@ -117,4 +117,4 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onViewDetails }) => 
   );
 };
 
-export default ProductCard;
+export default ProductCard2;

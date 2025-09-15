@@ -1,6 +1,6 @@
-import type { Product } from '../types';
+import type { ProductMock } from '../types';
 
-export const PRODUCTS: Product[] = [
+export const PRODUCTS: ProductMock[] = [
   {
     TITULO: 'Pañal Winny',
     DESCRIPCION:
