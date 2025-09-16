@@ -9,7 +9,7 @@ import Footer from '../components/layout/Footer';
 const Home = React.lazy(() => import('../pages/Home'));
 const Nosotros = React.lazy(() => import('../pages/Nosotros'));
 const Productos = React.lazy(() => import('../pages/Productos'));
-const Productos2 = React.lazy(() => import('../pages/productos2')); // <-- Aquí agregué este import
+const Productos2 = React.lazy(() => import('../pages/Productos2')); // <-- Aquí agregué este import
 const Carrito = React.lazy(() => import('../pages/Carrito'));
 const Perfil = React.lazy(() => import('../pages/Perfil'));
 const Contacto = React.lazy(() => import('../pages/Contacto'));

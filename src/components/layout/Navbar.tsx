@@ -13,13 +13,14 @@ const Navbar = () => {
   const { user, isAuthenticated } = useAuth();
   const totalItems = getTotalItems();
 
-  const navLinks = [
-    { href: '/', label: 'Inicio' },
-    { href: '/nosotros', label: 'Nosotros' },
-    { href: '/productos', label: 'Productos' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/contacto', label: 'Contacto' },
-  ];
+ const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/productos', label: 'Productos' },
+  { href: '/productos2', label: 'Productos2' }, // ← Agrega esta línea
+  { href: '/blog', label: 'Blog' },
+  { href: '/contacto', label: 'Contacto' },
+];
 
   const isActiveLink = (href: string) => {
     return location.pathname === href;
