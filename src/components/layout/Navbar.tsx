@@ -17,10 +17,10 @@ const Navbar = () => {
   { href: '/', label: 'Inicio' },
   { href: '/nosotros', label: 'Nosotros' },
   { href: '/productos', label: 'Productos' },
-  { href: '/productos2', label: 'Productos2' }, // ← Agrega esta línea
   { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' },
-];
+  { href: '/admin', label: 'Administrador' },
+ ];
 
   const isActiveLink = (href: string) => {
     return location.pathname === href;
@@ -52,7 +52,7 @@ const Navbar = () => {
                   target.nextElementSibling?.classList.remove('hidden');
                 }}
               />
-              <div className="hidden w-8 h-8 bg-baby-blue rounded-full flex items-center justify-center">
+              <div className="hidden w-8 h-8 bg-baby-blue rounded-full items-center justify-center">
                 <span className="text-white font-bold text-xs">BC</span>
               </div>
             </div>

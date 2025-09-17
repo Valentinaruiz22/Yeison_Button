@@ -7,7 +7,6 @@ import Button from '../ui/Button';
 
 interface BlogCardProps {
   post: BlogPost;
-  featured?: boolean;
   onReadMore?: () => void;
 }
 

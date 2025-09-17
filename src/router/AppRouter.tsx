@@ -1,3 +1,5 @@
+// Lazy loading de páginas
+
 import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -9,7 +11,7 @@ import Footer from '../components/layout/Footer';
 const Home = React.lazy(() => import('../pages/Home'));
 const Nosotros = React.lazy(() => import('../pages/Nosotros'));
 const Productos = React.lazy(() => import('../pages/Productos'));
-const Productos2 = React.lazy(() => import('../pages/Productos2')); // <-- Aquí agregué este import
+const Productos2 = React.lazy(() => import('../pages/Productos2'));
 const Carrito = React.lazy(() => import('../pages/Carrito'));
 const Perfil = React.lazy(() => import('../pages/Perfil'));
 const Contacto = React.lazy(() => import('../pages/Contacto'));
@@ -17,10 +19,12 @@ const Blog = React.lazy(() => import('../pages/Blog'));
 const Testimonios = React.lazy(() => import('../pages/Testimonios'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
+
 // Auth pages
 const Login = React.lazy(() => import('../pages/Login'));
 const Register = React.lazy(() => import('../pages/Register'));
 const ForgotPassword = React.lazy(() => import('../pages/ForgotPassword'));
+
 
 const AppRouter: React.FC = () => {
   return (
@@ -38,8 +42,7 @@ const AppRouter: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/productos" element={<Productos />} />
-            <Route path="/productos2" element={<Productos2 />} />{' '}
-            {/* <-- Aquí cambié Productos por Productos2 */}
+            <Route path="/productos2" element={<Productos2 />} />
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/contacto" element={<Contacto />} />
@@ -49,6 +52,7 @@ const AppRouter: React.FC = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            {/* Panel de administrador */}
             {/* NotFound */}
             <Route path="*" element={<NotFound />} />
           </Routes>

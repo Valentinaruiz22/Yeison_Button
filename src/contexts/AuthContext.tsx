@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useMemo } from 'react';
 import type { ReactNode } from 'react';
 // Tipos para usuario
 interface User {
@@ -7,6 +7,7 @@ interface User {
   name: string;
   email: string;
   token?: string; // JWT o similar cuando se conecte al backend
+  role?: string; // 'admin' o 'user'
 }
 
 interface AuthContextType {
@@ -34,6 +35,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       name: response.data.name,
       email: response.data.email,
       token: response.data.token,
+      role: response.data.role,
     };
 
     setUser(userData);
@@ -47,8 +49,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const isAuthenticated = !!user;
 
+  const contextValue = useMemo(() => ({ user, login, logout, isAuthenticated }), [user, isAuthenticated, login, logout]);
   return (
-    <AuthContext.Provider value={{ user, login, logout, isAuthenticated }}>
+    <AuthContext.Provider value={contextValue}>
       {children}
     </AuthContext.Provider>
   );
